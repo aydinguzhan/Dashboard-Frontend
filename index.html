@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Oguzhan Aydın, Frontend, Web component, Dashboard">
+    <link rel="stylesheet" href="./public/css/style.css">
+
+    <title>Dashboard || Frontend </title>
+</head>
+
+<body>
+    <div class="container">
+        <nav id="Navbar">
+            <div class="header">
+                <img src="./public/img/Logo.png" alt="" class="logo">
+            </div>
+            <div class="menu">
+                <h4 id="menu-title">User Panel</h4>
+                <div class="menu-list">
+                    <ul>
+                        <li><img src="./public/img/icon/Dashboard.png" alt="" class="icon"><span id="check"><a
+                                    href="/">Dashboard</a></span></li>
+                    </ul>
+                </div>
+                <div class="menu-list ">
+                    <ul>
+                        <li><img src="./public/img/icon/Portfolio.png" alt="" class="icon"><span><a href="/component.html">Components</a></span></li>
+                    </ul>
+                </div>
+                <div class="menu-list">
+                    <ul>
+                        <li><img src="./public/img/icon/Logout.png" alt="" class="icon"><span><a href="/">Logout</a></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="popup"></div>
+
+        </nav>
+        <main id="Main">
+            <div class="main-header">
+                <h3>Hello Matt,</h3>
+                <div class="input-area">
+                    <div class="icon-not"><i class="fa fa-search"></i></div>
+                    <input type="search" placeholder="Search for stocks and more">
+                    <img src="./public/img/Ellipse 40.png" alt="" class="profile-pic">
+                </div>
+            </div>
+            <div class="stocks-area">
+                <div class="boxs">
+                    <div class="box">
+                        <img src="./public/img/icon/nvida.png" alt="">
+                        <div class="box-text">
+                            <h4>Current Value</h4>
+                            <p>$203.53</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="./public/img/icon/meta.png" alt="">
+                        <div class="box-text">
+                            <h4>Current Value</h4>
+                            <p>$151.74</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="./public/img/icon/nvida.png" alt="">
+                        <div class="box-text">
+                            <h4>Current Value</h4>
+                            <p>$143.53</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="./public/img/icon/apple.png" alt="">
+                        <div class="box-text">
+                            <h4>Current Value</h4>
+                            <p>$75.03</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="./public/img/icon/nvida.png" alt="">
+                        <div class="box-text">
+                            <h4>Current Value</h4>
+                            <p>$75.03</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="./public/img/icon/apple.png" alt="">
+                        <div class="box-text">
+                            <h4>Current Value</h4>
+                            <p>$75.03</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="dashboard-area">
+                <div class="dashboard-box">
+                    <div class="pad">
+                        <div class="chart">
+                            <canvas id="myChart" class="canvas"></canvas>
+                        </div>
+                        <div class="text-box">
+                            <h2>hello</h2>
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-box">
+                    <div class="pad">
+                        <div class="chart">
+                            <canvas id="myChart1" class="canvas"></canvas>
+                        </div>
+                        <div class="text-box">
+                            <h2>hello</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-box">
+                    <div class="pad">
+                        <div class="chart">
+                            <canvas id="myChart2" class="canvas"></canvas>
+                        </div>
+                        <div class="text-box">
+                            <h2>hello</h2>
+                            <p>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-area">
+                <div class="content box1">
+                    <dashboard-component title="Gündem" subtext="Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Eius fugiat dignissimo praesentium quia minima quo delectus error beatae eaque voluptatum.">
+                    </dashboard-component>
+                </div>
+
+            </div>
+    </div>
+    <div class="container">
+
+    </div>
+
+
+
+    </main>
+    </div>
+    <script src="./public/js/app.js"></script>
+    <!-- Component -->
+    <script defer src="./components/Dashboard.js"></script>
+    <script defer src="./components/HeaderBox.js"></script>
+    <script defer src="./components/ChartBox.js"></script>
+    <!-- Component End -->
+    <!--Charjs  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chartjs end -->
+    <script>
+        const ctx = document.getElementById('myChart');
+        const ctx1 = document.getElementById('myChart1');
+        const ctx2 = document.getElementById('myChart2');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const labels = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs"];
+        new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    axis: 'y',
+                    label: 'My First Dataset',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    fill: false,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    filler: {
+                        propagate: true
+                    }
+                }
+            }
+        });
+
+
+
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

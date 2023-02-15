@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components</title>
+</head>
+
+<body>
+
+    <div class="block">
+       
+    </div>
+ 
+
+    <div class="block">
+        <dashboard-component title="Gündem" subtext="Lorem, ipsum dolor sit amet consectetur adipisicing elit.  delectus error beatae eaque voluptatum." background = "">
+        </dashboard-component>
+    </div>
+    
+        
+        <div class="block">
+            <box-component color="#6425FE", src = "", textcolor="white" width="250px", minwidth = "280px" height = "100px" minheight = "150px" padding = "16px"></box-component>
+            <box-component color="#A6F7E2", src = "./public/img/icon/apple.png", textcolor="white" width="250px", minwidth = "280px" height = "100px" minheight = "150px" padding = "16px"></box-component>
+        </div>
+
+    <script defer src="./components/HeaderBox.js"></script>
+    <script defer src="./components/Dashboard.js"></script>
+    <script defer src="./components/ChartBox.js"></script>
+
+    <style>
+        .block{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: .5em;
+            margin-top: 2.5em;
+        }
+    </style>
+    <script>
+         let data = [
+        {
+            "color" : "#A6F7E2",
+            "textcolor" :"black",
+            "width":"300px",
+            "minwidth":"200px",
+            "minheight":"150px",
+            "padding": "14px",
+            "src" :"./public/img/icon/nvida.png",
+        },
+        {
+            "color" : "#6425FE",
+            "textcolor" :"rgba(183, 155, 255, .4);",
+            "width":"300px",
+            "minwidth":"200px",
+            "minheight":"150px",
+            "padding": "14px",
+            "src" :"./public/img/icon/apple.png"
+        },
+        {
+            "color" : "rgba(183, 155, 255, .6)",
+            "textcolor" :"black",
+            "width":"300px",
+            "minwidth":"200px",
+            "minheight":"150px",
+            "padding": "14px",
+            "src" :"./public/img/icon/meta.png"
+        }
+    ]
+        const block = document.getElementsByClassName("block");
+        data.map(item => {
+            let element = document.createElement("box-component");
+            element.setAttribute("color", item.color);
+            element.setAttribute("textcolor", item.textcolor);
+            element.setAttribute("width", item.width);
+           element.setAttribute("minwidt", item.minwidth);
+           element.setAttribute("minheight", item.minheight);
+           element.setAttribute("padding", item.padding);
+           element.setAttribute("src",item.src)
+           console.log(element);
+           block[0].appendChild(element)
+        })
+        
+       
+    </script>
+</body>
+
+</html>
